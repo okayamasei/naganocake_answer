@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'bulma';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$header_background_color: #fffacd;
+$letter_color: #000000;
+.header {
+  height: 160px;
+  background-color: $header_background_color;
+  color: $letter_color;
+  a, a:visited {
+    color: $letter_color;
+  }
+  .logo {
+    float: left;
+    height: 60px;
+    width: 180px;
+    background-color: #ffffff;
+    margin: 50px 0;
+    text-align: center;
+  }
+  .top {
+    line-height: 60px;
+  }
+  nav.admin-nav {
+    float: right;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    ul {
+      list-style: none;
+      li {
+        display: inline-block;
+        float: left;
+        padding-left: 15px;
+        margin-top: 10px;
+      }
+    }
+    .search {
+      position: relative;
+      float: right;
+      margin-top: 55px;
+      .control {
+        padding: 12px 0;
+      }
+    }
+  }
+  nav.public-nav {
+    float: right;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    ul {
+      list-style: none;
+      li {
+        display: inline-block;
+        float: left;
+        padding-left: 30px;
+      }
+    }
+  }
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+  .main-container {
+    width: 90%;
+    margin: 30px auto;
+    h2 {
+      font-weight: bold;
+    }
+    .todays-order {
+      margin-top: 70px;
+      .count {
+        padding-left: 30px;
+      }
+    }
+  }
+  .sign-in {
+    dl {
+      float: left ;
+    }
+    dt {
+      float: left;
+      clear: left;
+    }
+    dd {
+      margin-left: 40px;
+    }
+  }
+}
