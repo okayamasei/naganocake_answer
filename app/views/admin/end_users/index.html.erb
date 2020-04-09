@@ -19,7 +19,7 @@
                 <%= link_to user.full_name, admin_end_user_path(user) %>
               </td>
               <td class="td-center"><%= user.email %></td>
-              <td class="td-center"><%= user.member_status %></td>
+              <td class="td-center"><%= user.is_valid_i18n %></td>
             </tr>
           <% end %>
         </tbody>

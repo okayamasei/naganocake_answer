@@ -73,11 +73,11 @@
           </div>
           <div class="column">
             <label for="">
-              <%= f.radio_button :is_valid, true, disabled: true %>
+              <%= f.radio_button :is_valid, "valid_user", disabled: true %>
               有効
             </label>
             <label for="">
-              <%= f.radio_button :is_valid, false, disabled: true %>
+              <%= f.radio_button :is_valid, "invalid_user", disabled: true %>
               退会済み
             </label>
           </div>

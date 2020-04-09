@@ -68,3 +68,7 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem "bulma-rails", "~> 0.4.2"
 
 gem 'kaminari'
+
+gem 'rails-i18n', '~> 5.1'
+
+gem 'enum_help'
