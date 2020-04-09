@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="main-container">
+    <h1>会員一覧画面</h1>
+    <div class="end_users">
+      <table style="">
+        <thead>
+          <tr>
+            <th class="th-center">会員ID</th>
+            <th class="th-center">氏名</th>
+            <th class="th-center">メールアドレス</th>
+            <th class="th-center">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @end_users.each do |user| %>
+            <tr>
+              <td class="td-center"><%= user.id %></td>
+              <td class="td-center">
+                <%= link_to user.full_name, admin_end_user_path(user) %>
+              </td>
+              <td class="td-center"><%= user.email %></td>
+              <td class="td-center"><%= user.member_status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div>
+        <%= paginate @end_users %>
+      </div>
+    </div>
+  </div>
+</div>
