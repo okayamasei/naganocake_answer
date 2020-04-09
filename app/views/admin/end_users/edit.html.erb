@@ -1,0 +1,97 @@
+<div class="container">
+  <div class="main-container">
+
+    <h1>会員編集画面</h1>
+    <div class="end_user">
+
+      <%= form_for(@end_user, url: admin_end_user_path) do |f| %>
+        <%= render "devise/shared/error_messages", resource: @end_user %>
+
+        <div class="columns">
+          <div class="column is-2">
+            <label for="" class="label">名前</label>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :family_name, autocomplete: "family_name", class: "input" %>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :first_name, autocomplete: "first_name", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+            <label for="" class="label">フリガナ</label>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :family_name_kana, autocomplete: "family_name_kana", class: "input" %>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+            <%= f.label :zip_code, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :zip_code, autocomplete: "zip_code", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+            <%= f.label :address, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :address, autocomplete: "address", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+            <%= f.label :tel, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :tel, autocomplete: "tel", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+            <%= f.label :email, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.email_field :email, autocomplete: "email", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+            <%= f.label :is_valid, class: "label" %>
+          </div>
+          <div class="column">
+            <label for="">
+              <%= f.radio_button :is_valid, "valid_user", disabled: true %>
+              有効
+            </label>
+            <label for="">
+              <%= f.radio_button :is_valid, "invalid_user", disabled: true %>
+              退会済み
+            </label>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-2">
+          </div>
+          <div class="column">
+            <%= f.submit "変更を保存する", class: "button is-primary main-botton" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

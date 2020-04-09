@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="main-container">
+    <h1>会員詳細画面</h1>
+    <div class="end_user">
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">顧客ID</label>
+        </div>
+        <div class="column is-1 has-text-left">
+          <%= @end_user.id %>
+        </div>
+        <div class="column is-1">
+          <span class="tag is-info">
+            <%= @end_user.is_valid_i18n %>会員
+          </span>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">氏名</label>
+        </div>
+        <div class="column is-2 has-text-left">
+          <%= @end_user.full_name %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">フリガナ</label>
+        </div>
+        <div class="column is-2 has-text-left">
+          <%= @end_user.full_name_kana %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">郵便番号</label>
+        </div>
+        <div class="column is-2 has-text-left">
+          <%= @end_user.zip_code %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">住所</label>
+        </div>
+        <div class="column is-2 has-text-left">
+          <%= @end_user.address %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">電話番号</label>
+        </div>
+        <div class="column is-2 has-text-left">
+          <%= @end_user.tel %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <label for="" class="label">メールアドレス</label>
+        </div>
+        <div class="column is-2 has-text-left">
+          <%= @end_user.email %>
+        </div>
+      </div>
+      <div class="buttons">
+        <%= link_to "編集する", edit_admin_end_user_path(@end_user), class: "button is-primary" %>
+        <%= link_to "注文履歴一覧を見る", "", class: "button is-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
