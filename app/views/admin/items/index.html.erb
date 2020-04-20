@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="main-container">
+    <h1>商品一覧画面</h1>
+    <div class="items clearfix">
+      <div class="item-add clearfix">
+        <div class="item-add-circle">
+          <%= link_to new_admin_item_path do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th class="th-left">商品ID</th>
+            <th class="th-left">商品名</th>
+            <th class="th-left">税抜価格</th>
+            <th class="th-left">ジャンル</th>
+            <th class="th-left">ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+            <tr>
+              <td class="td-left"><%= item.id %></td>
+              <td class="td-left"><%= link_to item.name, admin_item_path(item) %></td>
+              <td class="td-left"><%= item.price.to_s(:delimited) %></td>
+              <td class="td-left"><%= item.genre.name %></td>
+              <td class="td-left"><%= item.sales_status_i18n %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

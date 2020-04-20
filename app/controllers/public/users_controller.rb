@@ -21,7 +21,7 @@ class Public::UsersController < ApplicationController
 
   def destroy
     end_user = EndUser.find(current_end_user.id)
-    if end_user.update(is_valid: false)
+    if end_user.update(is_valid: "invalid_user")
       reset_session
       flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
       redirect_to root_path

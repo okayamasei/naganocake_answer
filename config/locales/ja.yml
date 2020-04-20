@@ -4,6 +4,10 @@ ja:
       is_valid:
         valid_user: 有効
         invalid_user: 無効
+    item:
+      sales_status:
+        sale: 販売中
+        sold_out: 売切れ
   activerecord:
     attributes:
       user:

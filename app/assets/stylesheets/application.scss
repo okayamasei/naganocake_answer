@@ -23,6 +23,12 @@
   box-sizing: border-box;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 th.th-center {
   text-align: center;
   vertical-align: middle;
@@ -114,9 +120,79 @@ $letter_color: #000000;
         padding-left: 30px;
       }
     }
-    .end_users, .end_user {
+    .end_users, .end_user, .items {
       width: 80%;
       margin: 30px auto;
+    }
+    .items {
+      .item-add {
+        float: right;
+        .item-add-circle {
+          background-color: #eee;
+          height: 40px;
+          width:  40px;
+          border-radius: 50%;
+          i {
+            padding: 12px 13px;
+          }
+        }
+      }
+      table {
+        margin-top: 10px;
+        th, td {
+          padding-left: 15px;
+        }
+        tr {
+          height: 50px;
+          border-bottom: 1px solid #555;
+        }
+        thead {
+          tr {
+            background-color: #eee;
+            border-top: 1px solid #555;
+          }
+        }
+      }
+    }
+    .item-image-empty {
+      width: 200px;
+      height: 150px;
+      background-color: #ddd;
+      margin-bottom: 5px;
+      div {
+        width: 200px;
+        height: 150px;
+        padding: 65px 67px;
+      }
+    }
+    .item-image {
+      margin: 0 30px;
+    }
+    .buttons {
+      margin-top: auto;
+      margin-left: 50px;
+    }
+    .item {
+      display: flex;
+      .item-info {
+        width: 580px;
+        .field {
+          label {
+            display: inline-block;
+            width: 170px;
+            vertical-align: top;
+            text-align: left;
+          }
+          input, textarea, select {
+            min-width: 300px;
+            width: 300px;
+            display: inline-block;
+          }
+          p {
+            display: inline-block;
+          }
+        }
+      }
     }
     .end_users {
       table {
@@ -130,6 +206,33 @@ $letter_color: #000000;
             border-top: 1px solid #ddd;
           }
         }
+      }
+    }
+    .public-items {
+      display: flex;
+      .genre-search {
+        border: 1px solid #ddd;
+        li {
+          &:first-child {
+            border-bottom: 1px solid #ddd;
+            padding: 3px 45px;
+          }
+          &:nth-child(n+2) {
+            padding: 10px;
+          }
+        }
+      }
+      .public-item-list {
+        margin-left: 30px;
+        .public-item-container {
+          display: flex;
+          .public-item {
+            margin-left: 10px;
+          }
+        }
+      }
+      .public-item-item-info {
+        display: flex;
       }
     }
   }

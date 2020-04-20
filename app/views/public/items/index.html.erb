@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="main-container">
+    <div class="public-items">
+      <div class="genre-search">
+        <%= render 'public/items/genre_search', genres: @genres %>
+      </div>
+      <div class="public-item-list">
+        <div>
+          <h1>商品一覧</h1>
+        </div>
+        <div class="public-item-container">
+          <% @items.each do |item| %>
+            <div class="public-item">
+              <% if item.image_id.nil? %>
+                <div class="item-image-empty">
+                  <div>No image</div>
+                </div>
+              <% else %>
+                <div class="item-image-preview image-preview">
+                  <%= image_tag attachment_url(item, :image, :fill, 200, 150, format: "jpg") %>
+                </div>
+              <% end %>
+              <p><%= link_to item.name, public_item_path(item) %></p>
+              <p>¥<%= item.price_with_tax.to_s(:delimited) %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
