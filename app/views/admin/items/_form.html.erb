@@ -1,0 +1,48 @@
+<div class="main-container">
+  <h1><%= title %></h1>
+  <%= form_with model: item, url: path, remote: false do |f| %>
+    <div class="item">
+      <div class="item-image">
+        <% if item.image_id.nil? %>
+          <div class="item-image-empty">
+            <div>No image</div>
+          </div>
+        <% else %>
+          <div class="item-image-preview image-preview">
+            <%= image_tag attachment_url(item, :image, :fill, 200, 150, format: "jpg") %>
+          </div>
+        <% end %>
+        <%= f.attachment_field :image, class: "image-file" %>
+      </div>
+      <div class="item-info">
+        <div class="field">
+          <label for="" class="">商品名</label>
+          <%= f.text_field :name, autocomplete: "name", class: "input" %>
+        </div>
+        <div class="field">
+          <label for="" class="">商品説明</label>
+          <%= f.text_area :description, autocomplete: "description", class: "textarea" %>
+        </div>
+        <div class="field">
+          <label for="" class="">ジャンル</label>
+          <div class="select">
+            <%= f.collection_select :genre_id, @genres, :id, :name, { include_blank: true } %>
+          </div>
+        </div>
+        <div class="field">
+          <label for="" class="">税抜価格</label>
+          <%= f.text_field :price, autocomplete: "price", class: "input" %>円
+        </div>
+        <div class="field">
+          <label for="" class="">販売<br>ステータス</label>
+          <div class="select">
+            <%= f.select :sales_status, Item.sales_statuses.keys.map {|k| [I18n.t("enums.item.sales_status.#{k}"), k]} %>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="button is-info"><%= button %></button>
+      </div>
+    </div>
+  <% end %>
+</div>

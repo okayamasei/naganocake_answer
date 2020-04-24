@@ -72,3 +72,8 @@ gem 'kaminari'
 gem 'rails-i18n', '~> 5.1'
 
 gem 'enum_help'
+
+gem 'refile', require: 'refile/rails', github: 'refile/refile', branch: 'master'
+gem 'refile-mini_magick'
+
+gem 'jquery-rails'

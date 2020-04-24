@@ -4,6 +4,7 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :cart_items
   enum is_valid: { valid_user: true, invalid_user: false }
 
   def active_for_authentication?

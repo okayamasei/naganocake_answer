@@ -30,7 +30,9 @@
     </header>
     <div class="container">
       <div class="main-container">
-        <p class="notice"><%= notice %></p>
+        <% if notice.present? %>
+          <p class="notice"><%= notice %></p>
+        <% end %>
         <p class="alert"><%= alert %></p>
       </div>
     </div>

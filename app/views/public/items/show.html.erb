@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="main-container">
+    <div class="public-items">
+      <div class="genre-search">
+        <%= render 'public/items/genre_search', genres: @genres %>
+      </div>
+      <div class="public-item-item-info">
+        <div class="item-image">
+          <% if @item.image_id.nil? %>
+            <div class="item-image-empty">
+              <div>No image</div>
+            </div>
+          <% else %>
+            <div class="item-image-preview image-preview">
+              <%= image_tag attachment_url(@item, :image, :fill, 200, 150, format: "jpg") %>
+            </div>
+          <% end %>
+        </div>
+        <div class="">
+          <div class="field">
+            <%= @item.name %>
+          </div>
+          <div class="field">
+            <%= simple_format @item.description %>
+          </div>
+          <div class="field">
+            ¥<%= @item.price_with_tax.to_s(:delimited) %> (税込)
+          </div>
+        </div>
+        <div class="buttons">
+          <%= form_with model: @cart_item, url: public_cart_items_create_path, remote: false do |f| %>
+            <div class="select">
+              <%= f.select :amount, CartItem.amounts %>
+            </div>
+            <%= f.submit "カートに入れる", class: "button is-info" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
