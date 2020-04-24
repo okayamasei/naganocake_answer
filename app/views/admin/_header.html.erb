@@ -3,7 +3,7 @@
     <li><%= link_to "商品一覧", admin_items_path, title: "商品一覧" %></li>
     <li><%= link_to "会員一覧", admin_end_users_path, title: "会員一覧" %></li>
     <li><%= link_to "注文履歴一覧", "", title: "注文履歴一覧" %></li>
-    <li><%= link_to "ジャンル管理", "", title: "ジャンル管理" %></li>
+    <li><%= link_to "ジャンル管理", admin_genres_path, title: "ジャンル管理" %></li>
     <li><%= link_to "ログアウト", destroy_admin_session_path, title: "ログアウト", method: :delete %></li>
   </ul>
   <div class="search">

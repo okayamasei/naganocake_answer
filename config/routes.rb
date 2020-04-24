@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :top, only: [:index]
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :genres, only: [:index, :create, :edit, :update]
   end
   devise_for :end_users, path: :public, controllers: {
     sessions: 'end_users/sessions',

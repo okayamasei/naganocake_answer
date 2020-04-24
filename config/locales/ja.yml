@@ -8,6 +8,11 @@ ja:
       sales_status:
         sale: 販売中
         sold_out: 売切れ
+    genre:
+      name: ジャンル名
+      is_valid:
+        valid_genre: 有効
+        invalid_genre: 無効
   activerecord:
     attributes:
       user:

@@ -36,6 +36,7 @@ th.th-center {
 th.th-left {
   text-align: left;
   vertical-align: middle;
+  padding-left: 15px;
 }
 td.td-center {
   text-align: center;
@@ -44,17 +45,18 @@ td.td-center {
 td.td-left {
   text-align: left;
   vertical-align: middle;
+  padding-left: 15px;
 }
 
 $header_background_color: #fffacd;
 $letter_color: #000000;
+a, a:visited {
+  color: $letter_color;
+}
 .header {
   height: 160px;
   background-color: $header_background_color;
   color: $letter_color;
-  a, a:visited {
-    color: $letter_color;
-  }
   .logo {
     float: left;
     height: 60px;
@@ -140,7 +142,7 @@ $letter_color: #000000;
       table {
         margin-top: 10px;
         th, td {
-          padding-left: 15px;
+          // padding-left: 15px;
         }
         tr {
           height: 50px;
@@ -233,6 +235,30 @@ $letter_color: #000000;
       }
       .public-item-item-info {
         display: flex;
+      }
+    }
+    .genre {
+      margin: 40px 10px;
+      label {
+        margin-right: 15px;
+      }
+      .input {
+        width: 200px;
+      }
+    }
+    .genres {
+      table {
+        width: 50%;
+        tr {
+          height: 50px;
+          border-bottom: 1px solid #ddd;
+        }
+        thead {
+          tr {
+            background-color: #eee;
+            border-top: 1px solid #ddd;
+          }
+        }
       }
     }
   }
