@@ -6,7 +6,11 @@
       </div>
       <div class="public-item-list">
         <div>
-          <h1>商品一覧</h1>
+          <% if params[:genre_id].present? %>
+            <h1><%= @genre.name %>一覧 (全 <%= @items.length %> 件) </h1>
+          <% else %>
+            <h1>商品一覧 (全 <%= @items.length %> 件) </h1>
+          <% end %>
         </div>
         <div class="public-item-container">
           <% @items.each do |item| %>
