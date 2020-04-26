@@ -32,20 +32,24 @@
 th.th-center {
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
 }
 th.th-left {
   text-align: left;
   vertical-align: middle;
   padding-left: 15px;
+  white-space: nowrap;
 }
 td.td-center {
   text-align: center;
   vertical-align: middle;
+  white-space: nowrap;
 }
 td.td-left {
   text-align: left;
   vertical-align: middle;
-  padding-left: 15px;
+  padding: 0 15px;
+  white-space: nowrap;
 }
 
 $header_background_color: #fffacd;
@@ -111,7 +115,7 @@ a, a:visited {
   width: 1024px;
   margin: 0 auto;
   .main-container {
-    width: 90%;
+    width: 100%;
     margin: 30px auto;
     h2 {
       font-weight: bold;
@@ -215,6 +219,7 @@ a, a:visited {
       .genre-search {
         border: 1px solid #ddd;
         li {
+          white-space: nowrap;
           &:first-child {
             border-bottom: 1px solid #ddd;
             padding: 3px 45px;
@@ -228,6 +233,7 @@ a, a:visited {
         margin-left: 30px;
         .public-item-container {
           display: flex;
+          flex-wrap: wrap;
           .public-item {
             margin-left: 10px;
           }
@@ -257,6 +263,60 @@ a, a:visited {
           tr {
             background-color: #eee;
             border-top: 1px solid #ddd;
+          }
+        }
+      }
+    }
+    .cart_items {
+      .cart-items-header {
+        display: flex;
+        justify-content: space-between;
+        h1 {
+          background-color: #eee;
+          padding: 3px 10px;
+        }
+      }
+      .cart-items-container {
+        margin-top: 15px;
+      }
+      .cart-items-footer {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        table {
+          width: 250px;
+          th {
+            width: 50%;
+          }
+          td {
+            width: 50%;
+          }
+        }
+      }
+      table {
+        tr {
+          height: 50px;
+          border-top: 1px solid #ddd;
+          &:last-child {
+            border-bottom: 1px solid #ddd;
+          }
+          th, td {
+            border-left: 1px solid #ddd;
+            &:last-child {
+              border-right: 1px solid #ddd;
+            }
+          }
+          td {
+            .input {
+              width: 30%;
+            }
+            .button {
+              margin-left: 15px;
+            }
+          }
+          th {
+            width: 30%;
+            background-color: #eee;
           }
         }
       }
