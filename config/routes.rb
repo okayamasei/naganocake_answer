@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :end_users, only: [:index, :show, :edit, :update]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
     resources :genres, only: [:index, :create, :edit, :update]
+    resources :orders, only: [:index, :show, :update]
+    resources :order_items, only: [:update]
   end
   devise_for :end_users, path: :public, controllers: {
     sessions: 'end_users/sessions',
@@ -28,5 +30,12 @@ Rails.application.routes.draw do
     patch 'cart_items/update'
     delete 'cart_items/destroy'
     delete 'cart_items/destroy_all'
+
+    get 'orders/new'
+    post 'orders/confirm'
+    get 'orders/index'
+    get 'orders/show'
+    post 'orders/create'
+    get 'orders/complete'
   end
 end

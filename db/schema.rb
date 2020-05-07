@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_050027) do
+ActiveRecord::Schema.define(version: 2020_05_04_095155) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.integer "end_user_id", null: false
+    t.string "zip_code", null: false
+    t.string "address", null: false
+    t.string "destination", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["end_user_id"], name: "index_addresses_on_end_user_id"
+  end
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -64,6 +74,32 @@ ActiveRecord::Schema.define(version: 2020_04_20_050027) do
     t.integer "sales_status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "order_id", null: false
+    t.integer "amount", null: false
+    t.integer "price", null: false
+    t.decimal "tax_rate", null: false
+    t.integer "work_status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "item_id", null: false
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "end_user_id", null: false
+    t.string "zip_code", null: false
+    t.string "address", null: false
+    t.string "destination", null: false
+    t.integer "pay_type", default: 1, null: false
+    t.integer "order_status", default: 0, null: false
+    t.integer "postage", null: false
+    t.integer "amount", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["end_user_id"], name: "index_orders_on_end_user_id"
   end
 
 end

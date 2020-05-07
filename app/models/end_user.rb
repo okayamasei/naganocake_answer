@@ -5,6 +5,8 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :cart_items
+  has_many :addresses
+  has_many :orders
   enum is_valid: { valid_user: true, invalid_user: false }
 
   def active_for_authentication?
