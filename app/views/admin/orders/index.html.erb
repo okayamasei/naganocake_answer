@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="main-container">
+    <h1>注文一覧画面</h1>
+    <div class="admin-orders">
+      <table style="">
+        <thead>
+          <tr>
+            <th class="th-left">購入日時</th>
+            <th class="th-left">購入者</th>
+            <th class="th-left">注文個数</th>
+            <th class="th-left">注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td class="td-left"><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
+              <td class="td-left"><%= order.end_user.full_name %></td>
+              <td class="td-left"><%= order.sum_order_items %></td>
+              <td class="td-left"><%= order.order_status_i18n %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div>
+        <%= paginate @orders %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -25,12 +25,12 @@
               <tr>
                 <td class="td-left"><%= cart_item.item.name %></td>
                 <td class="td-left"><%= cart_item.item.price_with_tax.to_s(:delimited) %></td>
-                <%= form_with model: cart_item, url: public_cart_items_update_path(id: cart_item.id), local: true do |f| %>
-                  <td class="td-left">
+                <td class="td-left">
+                  <%= form_with model: cart_item, url: public_cart_items_update_path(id: cart_item.id), local: true do |f| %>
                     <%= f.number_field :amount, class: "input" %>
                     <%= f.submit "変更", class: "button is-info" %>
-                  </td>
-                <% end %>
+                  <% end %>
+                </td>
                 <td class="td-left"><%= cart_item.subtotal.to_s(:delimited) %></td>
                 <td class="td-left">
                   <%= link_to "削除する", public_cart_items_destroy_path(id: cart_item.id), method: :delete, class: "button is-danger" %>
@@ -53,6 +53,11 @@
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+      <div class="move-on-order">
+        <div>
+          <%= link_to "情報入力に進む", public_orders_new_path, class: "button is-primary" %>
         </div>
       </div>
     </div>
