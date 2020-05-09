@@ -14,7 +14,9 @@ module NaganoCakes
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     config.action_view.field_error_proc = Proc.new do |html_tag, instance|
-      unless instance.kind_of?(ActionView::Helpers::Tags::Label)
+      if instance.kind_of?(ActionView::Helpers::Tags::Label)
+        "#{html_tag}".html_safe
+      else instance.kind_of?(ActionView::Helpers::Tags::Label)
         "#{html_tag}".html_safe
       end
     end

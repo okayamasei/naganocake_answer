@@ -3,6 +3,11 @@ ja:
     models:
       genre: ジャンル
       end_user: 会員
+      address: 配送先
     attributes:
       genre:
         name: ジャンル名
+      address:
+        zip_code: 郵便番号
+        address: 住所
+        destination: 宛名
