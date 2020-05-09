@@ -466,6 +466,30 @@ a, a:visited {
         }
       }
     }
+    .public-orders {
+      &-header {
+        display: flex;
+      }
+      &-main {
+        margin-top: 30px;
+      }
+      &-show {
+        margin-top: 30px;
+        display: flex;
+        &-order {
+          flex-basis: auto;
+          width: 60%;
+        }
+        &-billing {
+          flex-basis: auto;
+          width: 30%;
+          margin-left: 5%;
+        }
+      }
+      &-show-order-items {
+        margin-top: 30px;
+      }
+    }
   }
   .sign-in {
     dl {
@@ -497,6 +521,7 @@ tr.tr-header {
 table.table-primary {
   tr {
     border-top: 1px solid #ddd;
+    height: 50px;
     &:last-child {
       border-bottom: 1px solid #ddd;
     }

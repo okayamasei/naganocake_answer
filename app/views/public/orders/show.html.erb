@@ -1,2 +1,86 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class="container">
+  <div class="main-container">
+    <div class="public-orders">
+      <div class="public-orders-header">
+        <div>
+          <h1 class="h1-primary">注文履歴詳細</h1>
+        </div>
+      </div>
+
+      <div class="public-orders-show">
+        <div class="public-orders-show-order">
+          <h2>注文情報</h2>
+          <table class="table-primary">
+            <tbody>
+              <tr>
+                <th class="th-left">注文日</th>
+                <td class="td-left"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+              </tr>
+              <tr>
+                <th class="th-left">配送先</th>
+                <td class="td-left">
+                  <%= @order.zip_code %><br>
+                  <%= @order.address %><br>
+                  <%= @order.destination %>
+                  </td>
+              </tr>
+              <tr>
+                <th class="th-left">支払方法</th>
+                <td class="td-left"><%= @order.pay_type_i18n %></td>
+              </tr>
+              <tr>
+                <th class="th-left">ステータス</th>
+                <td class="td-left"><%= @order.order_status_i18n %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="public-orders-show-billing">
+          <h2>請求情報</h2>
+          <table class="table-primary">
+            <tbody>
+              <tr>
+                <th class="th-left">商品合計</th>
+                <td class="td-left"><%= @order.sum_order_item_prices.to_s(:delimited) %></td>
+              </tr>
+              <tr>
+                <th class="th-left">配送料</th>
+                <td class="td-left"><%= @order.postage.to_s(:delimited) %></td>
+              </tr>
+              <tr>
+                <th class="th-left">ご請求額</th>
+                <td class="td-left"><%= @order.amount.to_s(:delimited) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="public-orders-show-order-items">
+        <h2>注文内容</h2>
+          <table class="table-primary">
+            <thead>
+              <tr>
+                <th class="th-left">商品</th>
+                <th class="th-left">単価(税込)</th>
+                <th class="th-left">個数</th>
+                <th class="th-left">小計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @order.order_items.each do |order_item| %>
+                <tr>
+                  <td class="td-left"><%= order_item.item.name %></td>
+                  <td class="td-left"><%= order_item.price_with_tax.to_s(:delimited) %></td>
+                  <td class="td-left"><%= order_item.amount.to_s(:delimited) %></td>
+                  <td class="td-left"><%= order_item.subtotal.to_s(:delimited) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+
+    </div>
+  </div>
+</div>
