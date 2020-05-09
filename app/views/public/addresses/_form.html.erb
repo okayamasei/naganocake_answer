@@ -1,0 +1,37 @@
+<%= form_with model: model, url: url, local: true, builder: CustomFormBuilder do |f| %>
+  <% if model.id.present? %>
+    <%= f.hidden_field :id %>
+  <% end %>
+  <div class="public-addresses-new">
+    <div class="public-addresses-new-form field">
+      <%= render "admin/shared/error_messages", resource: f.object %>
+      <div class="columns">
+        <div class="column is-3">
+          <%= f.label :zip_code, class: "label" %>
+        </div>
+        <div class="column is-3">
+          <%= f.text_field :zip_code, class: "input" %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <%= f.label :address, class: "label" %>
+        </div>
+        <div class="column is-7">
+          <%= f.text_field :address, class: "input" %>
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-3">
+          <%= f.label :destination, class: "label" %>
+        </div>
+        <div class="column is-3">
+          <%= f.text_field :destination, class: "input" %>
+        </div>
+      </div>
+    </div>
+    <div class="public-addresses-new-submit">
+      <%= f.submit button[:text], class: "button #{button[:class]}" %>
+    </div>
+  </div>
+<% end %>

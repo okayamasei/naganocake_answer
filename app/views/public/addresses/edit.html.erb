@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="main-container">
+    <div class="public-addresses">
+      <div class="public-addresses-header">
+        <div>
+          <h1 class="h1-primary">配送先編集</h1>
+        </div>
+      </div>
+
+      <%=
+        render(
+          'public/addresses/form',
+          model: @address,
+          url: public_addresses_update_path,
+          button: { text: "編集する", class: "is-info" }
+        )
+      %>
+
+    </div>
+  </div>
+</div>
+

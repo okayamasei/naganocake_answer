@@ -278,10 +278,6 @@ a, a:visited {
       .cart-items-header {
         display: flex;
         justify-content: space-between;
-        h1 {
-          background-color: #eee;
-          padding: 3px 10px;
-        }
       }
       .cart-items-container {
         margin-top: 15px;
@@ -399,10 +395,6 @@ a, a:visited {
     .new-order-header {
       display: flex;
       justify-content: space-between;
-      h1 {
-        background-color: #eee;
-        padding: 3px 10px;
-      }
     }
     .admin-orders {
       table {
@@ -450,6 +442,30 @@ a, a:visited {
         }
       }
     }
+    .public-addresses {
+      .public-addresses-header {
+        display: flex;
+      }
+      .public-addresses-new {
+        margin-top: 30px;
+        display: flex;
+        div.public-addresses-new-form {
+          flex-basis: auto;
+          width: 70%;
+        }
+        div.public-addresses-new-submit {
+          flex-basis: auto;
+          margin-top: auto;
+          width: 30%;
+        }
+      }
+      .public-addresses-index {
+        margin-top: 50px;
+        table {
+          width: 70%;
+        }
+      }
+    }
   }
   .sign-in {
     dl {
@@ -461,6 +477,46 @@ a, a:visited {
     }
     dd {
       margin-left: 40px;
+    }
+  }
+}
+
+h1.h1-primary {
+  background-color: #eee;
+  padding: 3px 10px;
+}
+
+tr.tr-primary {
+  height: 50px;
+}
+
+tr.tr-header {
+  background-color: #eee;
+}
+
+table.table-primary {
+  tr {
+    border-top: 1px solid #ddd;
+    &:last-child {
+      border-bottom: 1px solid #ddd;
+    }
+    th, td {
+      border-left: 1px solid #ddd;
+      &:last-child {
+        border-right: 1px solid #ddd;
+      }
+    }
+    td {
+      .input {
+        width: 30%;
+      }
+      .button {
+        margin-left: 15px;
+      }
+    }
+    th {
+      width: 30%;
+      background-color: #eee;
     }
   }
 }
@@ -519,4 +575,8 @@ a, a:visited {
       margin-top: 30px;
     }
   }
+}
+
+#error_explanation {
+  margin-bottom: 30px;
 }
