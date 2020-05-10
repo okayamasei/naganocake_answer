@@ -1,21 +1,22 @@
 class Order < ApplicationRecord
   belongs_to :end_user
   has_many :order_items
-  attr_accessor :address_status
-  attr_accessor :address_id
+  attr_accessor :address_status, :address_id
 
   ADDRESS_STATUS_DEFAULT = "self"
   POSTAGE_DEFAULT = 800
-  ORDER_STATUS_DEFAULT = 0
   after_initialize do |obj|
-    @address_status = ADDRESS_STATUS_DEFAULT
-    obj.postage = obj.postage || POSTAGE_DEFAULT
-    obj.order_status = obj.order_status || ORDER_STATUS_DEFAULT
+    obj.address_status ||= ADDRESS_STATUS_DEFAULT
+    obj.postage ||= POSTAGE_DEFAULT
   end
 
   enum pay_type: { credit_cart: 1, bank_transfer: 2 }
   enum order_status: { before_deposite: 0, deposited: 1, in_production: 2, shipping: 3, shipped: 4 }
   enum address_status: { self: 1, registered: 2, registration: 3 }
+
+  validates :zip_code, presence: true
+  validates :address, presence: true
+  validates :destination, presence: true
 
   def sum_order_items
     self.order_items.inject(0) {|sum, object| sum + object.amount}

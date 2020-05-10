@@ -4,15 +4,16 @@ class Public::UsersController < ApplicationController
   end
 
   def edit
+    @end_user = EndUser.find(current_end_user.id)
   end
 
   def update
-    end_user = EndUser.find(current_end_user.id)
-    if end_user.update(end_user_params)
+    @end_user = EndUser.find(current_end_user.id)
+    if @end_user.update(end_user_params)
       flash[:notice] = "保存しました"
       redirect_to public_users_show_path
     else
-      render public_users_edit_path
+      render 'edit'
     end
   end
 

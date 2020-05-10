@@ -5,8 +5,8 @@
         <h1 class="h1-primary">注文情報入力</h1>
       </div>
       <div class="new-order-form">
-        <%= form_with model: @order, url: public_orders_confirm_path, local: true do |f| %>
-
+        <%= form_with model: @order, url: public_orders_confirm_path, local: true, builder: CustomFormBuilder do |f| %>
+          <%= render "admin/shared/error_messages", resource: f.object %>
           <div>
             <div>
               <%= f.label :pay_type, class: "label" %>
