@@ -4,6 +4,7 @@ ja:
       genre: ジャンル
       end_user: 会員
       address: 配送先
+      order: 注文
     attributes:
       genre:
         name: ジャンル名
@@ -11,3 +12,29 @@ ja:
         zip_code: 郵便番号
         address: 住所
         destination: 宛名
+      end_user:
+        id:  会員ID
+        family_name: 姓
+        first_name:  名
+        family_name_kana:  姓カナ
+        first_name_kana: 名カナ
+        email: メールアドレス
+        zip_code:  郵便番号
+        address: 住所
+        tel: 電話番号
+        password:  パスワード
+        is_valid:  会員有効性
+        created_at:  登録日時
+        updated_at:  更新日時
+      order:
+        id:  注文ID
+        end_user_id: 会員ID
+        zip_code:  郵便番号
+        address: 住所
+        destination: 宛名
+        pay_type:  支払い方法
+        order_status:  注文ステータス
+        postage: 送料
+        amount:  請求合計金額
+        created_at:  登録日時
+        updated_at:  更新日時
