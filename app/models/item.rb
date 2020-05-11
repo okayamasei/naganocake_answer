@@ -5,7 +5,8 @@ class Item < ApplicationRecord
   attachment :image
 
   enum sales_status: { sale: 1, sold_out: 2 }
-  validates :genre_id, presence: true
+  validates :price, presence: true
+  validates :sales_status, presence: true
   attr_accessor :tax_rate
   after_initialize do |obj|
     obj.tax_rate = 0.10

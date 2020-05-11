@@ -19,7 +19,7 @@ class Admin::EndUsersController < ApplicationController
       flash[:notice] = "保存しました"
       redirect_to admin_end_user_path(@end_user)
     else
-      render edit_admin_end_user_path(@end_user)
+      render 'edit'
     end
   end
 
@@ -34,6 +34,7 @@ class Admin::EndUsersController < ApplicationController
       :address,
       :tel,
       :email,
+      :is_valid,
     )
   end
 
