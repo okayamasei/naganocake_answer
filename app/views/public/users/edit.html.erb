@@ -2,8 +2,8 @@
   <div class="main-container">
     <div class="end_user my-page">
       <h1>登録情報編集</h1>
-      <%= form_with model: current_end_user, url: public_users_update_path, remote: false do |f| %>
-        <%= render "devise/shared/error_messages", resource: current_end_user %>
+      <%= form_with model: @end_user, url: public_users_update_path, local: true, builder: CustomFormBuilder do |f| %>
+        <%= render "admin/shared/error_messages", resource: f.object %>
 
         <div class="columns my-page-box">
           <div class="column is-2">

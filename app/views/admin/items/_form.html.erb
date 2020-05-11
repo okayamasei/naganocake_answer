@@ -1,6 +1,7 @@
 <div class="main-container">
   <h1><%= title %></h1>
-  <%= form_with model: item, url: path, remote: false do |f| %>
+  <%= form_with model: item, url: path, local: true, builder: CustomFormBuilder do |f| %>
+    <%= render "admin/shared/error_messages", resource: f.object %>
     <div class="item">
       <div class="item-image">
         <% if item.image_id.nil? %>
@@ -16,25 +17,25 @@
       </div>
       <div class="item-info">
         <div class="field">
-          <label for="" class="">商品名</label>
+          <%= f.label :name %>
           <%= f.text_field :name, autocomplete: "name", class: "input" %>
         </div>
         <div class="field">
-          <label for="" class="">商品説明</label>
+          <%= f.label :description %>
           <%= f.text_area :description, autocomplete: "description", class: "textarea" %>
         </div>
         <div class="field">
-          <label for="" class="">ジャンル</label>
+          <%= f.label :genre %>
           <div class="select">
-            <%= f.collection_select :genre_id, @genres, :id, :name, { include_blank: true } %>
+            <%= f.collection_select :genre_id, @genres, :id, :name, { include_blank: true }, { class: "input", method: :genre } %>
           </div>
         </div>
         <div class="field">
-          <label for="" class="">税抜価格</label>
+          <%= f.label :price %>
           <%= f.text_field :price, autocomplete: "price", class: "input" %>円
         </div>
         <div class="field">
-          <label for="" class="">販売<br>ステータス</label>
+          <%= f.label :sales_status %>
           <div class="select">
             <%= f.select :sales_status, Item.sales_statuses.keys.map {|k| [I18n.t("enums.item.sales_status.#{k}"), k]} %>
           </div>

@@ -4,8 +4,8 @@
     <h1>会員編集画面</h1>
     <div class="end_user">
 
-      <%= form_for(@end_user, url: admin_end_user_path) do |f| %>
-        <%= render "devise/shared/error_messages", resource: @end_user %>
+      <%= form_with model: @end_user, url: admin_end_user_path, local: true, builder: CustomFormBuilder do |f| %>
+        <%= render "admin/shared/error_messages", resource: f.object %>
 
         <div class="columns">
           <div class="column is-2">
@@ -73,11 +73,11 @@
           </div>
           <div class="column">
             <label>
-              <%= f.radio_button :is_valid, "valid_user", disabled: true %>
+              <%= f.radio_button :is_valid, "valid_user" %>
               有効
             </label>
             <label>
-              <%= f.radio_button :is_valid, "invalid_user", disabled: true %>
+              <%= f.radio_button :is_valid, "invalid_user" %>
               退会済み
             </label>
           </div>
