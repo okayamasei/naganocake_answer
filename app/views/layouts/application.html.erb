@@ -10,6 +10,28 @@
   </head>
 
   <body>
+    <header id="admin-header" class="header">
+      <div class="container">
+        <div class="logo">
+          <% if admin_signed_in? %>
+            <%= link_to "LOGO", admin_top_index_path, title: "Top", class: "top" %>
+          <% else %>
+            <%= link_to "LOGO", root_path, title: "Top", class: "top" %>
+          <% end %>
+        </div>
+        <% if admin_signed_in? %>
+          <%= render "admin/header" %>
+        <% else %>
+          <%= render "public/header" %>
+        <% end %>
+      </div>
+    </header>
+    <div class="container">
+      <div class="main-container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
