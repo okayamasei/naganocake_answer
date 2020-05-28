@@ -2,7 +2,7 @@
   <ul>
     <% if end_user_signed_in? %>
       <li>ようこそ <%= current_end_user.family_name %> さん！</li>
-      <li><%= link_to "マイページ", "", title: "マイページ" %></li>
+      <li><%= link_to "マイページ", users_show_path, title: "マイページ" %></li>
     <% end %>
     <li><%= link_to "商品一覧", "", title: "商品一覧" %></li>
     <% if end_user_signed_in? %>

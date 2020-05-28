@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="main-container">
+    <div class="end_user my-page">
+      <h1>登録情報編集</h1>
+      <%= form_with model: @end_user, url: users_update_path, local: true, builder: CustomFormBuilder do |f| %>
+        <%= render "devise/shared/error_messages", resource: f.object %>
+
+        <div class="columns my-page-box">
+          <div class="column is-2">
+            <label for="" class="label">名前</label>
+          </div>
+          <div class="column is-2 has-text-right">
+            <%= f.label :family_name, class: "label" %>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :family_name, autocomplete: "family_name", class: "input" %>
+          </div>
+          <div class="column is-2 has-text-right">
+            <%= f.label :first_name, class: "label" %>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :first_name, autocomplete: "first_name", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns my-page-box">
+          <div class="column is-2">
+            <label for="" class="label">フリガナ</label>
+          </div>
+          <div class="column is-2 has-text-right">
+            <%= f.label :family_name_kana, class: "label" %>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :family_name_kana, autocomplete: "family_name_kana", class: "input" %>
+          </div>
+          <div class="column is-2 has-text-right">
+            <%= f.label :first_name_kana, class: "label" %>
+          </div>
+          <div class="column is-3">
+            <%= f.text_field :first_name_kana, autocomplete: "first_name_kana", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns my-page-box">
+          <div class="column is-4">
+            <%= f.label :email, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.email_field :email, autocomplete: "email", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns my-page-box">
+          <div class="column is-4">
+            <%= f.label :zip_code, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :zip_code, autocomplete: "zip_code", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns my-page-box">
+          <div class="column is-4">
+            <%= f.label :address, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :address, autocomplete: "address", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns my-page-box">
+          <div class="column is-4">
+            <%= f.label :tel, class: "label" %>
+          </div>
+          <div class="column">
+            <%= f.text_field :tel, autocomplete: "tel", class: "input" %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="column is-3">
+          </div>
+          <div class="column">
+            <%= f.submit "編集内容を保存する", class: "button is-info" %>
+          </div>
+          <div class="column">
+            <%= link_to "退会する", users_confirm_path, class: "button is-danger" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</div>

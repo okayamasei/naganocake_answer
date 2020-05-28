@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   }
   namespace :admin do
     resources :top, only: [:index]
+    resources :end_users, only: [:index, :show, :edit, :update]
   end
   devise_for :end_users, controllers: {
     sessions: 'end_users/sessions',
@@ -15,5 +16,9 @@ Rails.application.routes.draw do
     get '/' => "items#top"
     resources :items, only: [:index]
     get 'users/show'
+    get 'users/edit'
+    patch 'users/update'
+    get 'users/confirm'
+    delete 'users/destroy'
   end
 end

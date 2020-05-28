@@ -1,2 +1,50 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class="container">
+  <div class="main-container">
+    <h1>マイページ</h1>
+    <div class="end_user my-page">
+      <div class="buttons my-page-box">
+        <span>登録情報</span>
+        <%= link_to "編集する", users_edit_path, class: "button is-info" %>
+        <a class="button is-info">パスワードを変更する</a>
+      </div>
+      <div class="my-page-box">
+        <table class="">
+          <tbody>
+            <tr>
+              <th class="th-left">氏名</th>
+              <td class="td-left"><%= current_end_user.full_name %></td>
+            </tr>
+            <tr>
+              <th class="th-left">カナ</th>
+              <td class="td-left"><%= current_end_user.full_name_kana %></td>
+            </tr>
+            <tr>
+              <th class="th-left">郵便番号</th>
+              <td class="td-left"><%= current_end_user.zip_code %></td>
+            </tr>
+            <tr>
+              <th class="th-left">住所</th>
+              <td class="td-left"><%= current_end_user.address %></td>
+            </tr>
+            <tr>
+              <th class="th-left">電話番号</th>
+              <td class="td-left"><%= current_end_user.tel %></td>
+            </tr>
+            <tr>
+              <th class="th-left">メールアドレス</th>
+              <td class="td-left"><%= current_end_user.email %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="buttons my-page-box">
+        <span>配送先</span>
+        <a class="button is-info">一覧を見る</a>
+      </div>
+      <div class="buttons my-page-box">
+        <span>注文履歴</span>
+        <a class="button is-info">一覧を見る</a>
+      </div>
+    </div>
+  </div>
+</div>
