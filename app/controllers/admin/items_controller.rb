@@ -6,7 +6,7 @@ class Admin::ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @genres = Genre.all
+    @genres = Genre.fetch_valid
   end
 
   def create
@@ -15,7 +15,7 @@ class Admin::ItemsController < ApplicationController
       flash[:notice] = "作成しました"
       redirect_to admin_item_path(@item)
     else
-      @genres = Genre.all
+      @genres = Genre.fetch_valid
       render "new"
     end
   end
@@ -38,7 +38,6 @@ class Admin::ItemsController < ApplicationController
       @genres = Genre.all
       render "edit"
     end
-
   end
 
   private
