@@ -4,7 +4,7 @@
       <li>ようこそ <%= current_end_user.family_name %> さん！</li>
       <li><%= link_to "マイページ", users_show_path, title: "マイページ" %></li>
     <% end %>
-    <li><%= link_to "商品一覧", "", title: "商品一覧" %></li>
+    <li><%= link_to "商品一覧", items_path, title: "商品一覧" %></li>
     <% if end_user_signed_in? %>
       <li><%= link_to "カート", "", title: "カート" %></li>
       <li><%= link_to "ログアウト", destroy_end_user_session_path, title: "ログアウト", method: :delete %></li>

@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      genre: ジャンル
+      end_user: 会員
+    attributes:
+      genre:
+        name: ジャンル名
