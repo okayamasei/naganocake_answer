@@ -278,6 +278,23 @@ a, a:visited {
       }
       .cart-items-container {
         margin-top: 15px;
+        &__item-image {
+          display: flex;
+        }
+        &__item-image-empty {
+          width: 45px;
+          height: 30px;
+          background-color: #ddd;
+          // margin-bottom: 5px;
+          div {
+            width: 45px;
+            height: 30px;
+            // padding: 65px 67px;
+          }
+        }
+        &__item-name {
+          margin-left: 10px;
+        }
       }
       .cart-items-footer {
         margin-top: 15px;

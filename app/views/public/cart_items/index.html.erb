@@ -23,7 +23,22 @@
           <tbody>
             <% @cart_items.each do |cart_item| %>
               <tr>
-                <td class="td-left"><%= cart_item.item.name %></td>
+                <td class="td-left">
+                  <div class="cart-items-container__item-image">
+                    <% if cart_item.item.image_id.nil? %>
+                      <div class="cart-items-container__item-image-empty">
+                        <div></div>
+                      </div>
+                    <% else %>
+                      <div class="item-image-preview image-preview">
+                        <%= image_tag attachment_url(cart_item.item, :image, :fill, 45, 30, format: "jpg") %>
+                      </div>
+                    <% end %>
+                    <div class="cart-items-container__item-name">
+                      <%= cart_item.item.name %>
+                    </div>
+                  </div>
+                </td>
                 <td class="td-left"><%= cart_item.item.price_with_tax.to_s(:delimited) %></td>
                 <%= form_with model: cart_item, url: cart_items_update_path(id: cart_item.id), local: true do |f| %>
                   <td class="td-left">
