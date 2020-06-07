@@ -1,4 +1,5 @@
 class Public::ItemsController < ApplicationController
+  # before_action :authenticate_end_user!, only: [:index, :show]
   def top
   end
 

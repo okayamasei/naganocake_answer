@@ -28,7 +28,9 @@
           </div>
         </div>
         <div class="buttons">
-          <%= form_with model: @cart_item, url: cart_items_create_path, remote: false do |f| %>
+          <%= form_with model: @cart_item, url: public_cart_items_create_path, local: true do |f| %>
+            <%= render "admin/shared/error_messages", resource: f.object %>
+            <%= f.hidden_field :item_id, value: @item.id %>
             <div class="select">
               <%= f.select :amount, CartItem.amounts %>
             </div>

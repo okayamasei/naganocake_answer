@@ -6,7 +6,7 @@
     <% end %>
     <li><%= link_to "商品一覧", items_path, title: "商品一覧" %></li>
     <% if end_user_signed_in? %>
-      <li><%= link_to "カート", "", title: "カート" %></li>
+      <li><%= link_to "カート", public_cart_items_index_path, title: "カート" %></li>
       <li><%= link_to "ログアウト", destroy_end_user_session_path, title: "ログアウト", method: :delete %></li>
     <% else %>
       <li><%= link_to "新規登録", new_end_user_registration_path, title: "新規登録" %></li>
