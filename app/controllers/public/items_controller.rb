@@ -3,11 +3,10 @@ class Public::ItemsController < ApplicationController
   end
 
   def index
+    @items = Item.where(sales_status: 'sale')
     if params[:genre_id].present?
-      @items = Item.where(genre_id: params[:genre_id])
+      @items = @items.where(genre_id: params[:genre_id])
       @genre = Genre.find(params[:genre_id])
-    else
-      @items = Item.all
     end
     @genres = Genre.fetch_valid
   end
