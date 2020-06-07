@@ -6,7 +6,7 @@
           <h1>ショッピングカート</h1>
         </div>
         <div>
-          <%= link_to "カートを空にする", public_cart_items_destroy_all_path, method: :delete , class: "button is-danger"%>
+          <%= link_to "カートを空にする", cart_items_destroy_all_path, method: :delete , class: "button is-danger"%>
         </div>
       </div>
       <div class="cart-items-container">
@@ -25,7 +25,7 @@
               <tr>
                 <td class="td-left"><%= cart_item.item.name %></td>
                 <td class="td-left"><%= cart_item.item.price_with_tax.to_s(:delimited) %></td>
-                <%= form_with model: cart_item, url: public_cart_items_update_path(id: cart_item.id), local: true do |f| %>
+                <%= form_with model: cart_item, url: cart_items_update_path(id: cart_item.id), local: true do |f| %>
                   <td class="td-left">
                     <%= f.number_field :amount, class: "input" %>
                     <%= f.submit "変更", class: "button is-info" %>
@@ -33,7 +33,7 @@
                 <% end %>
                 <td class="td-left"><%= cart_item.subtotal.to_s(:delimited) %></td>
                 <td class="td-left">
-                  <%= link_to "削除する", public_cart_items_destroy_path(id: cart_item.id), method: :delete, class: "button is-danger" %>
+                  <%= link_to "削除する", cart_items_destroy_path(id: cart_item.id), method: :delete, class: "button is-danger" %>
                 </td>
               </tr>
             <% end %>
@@ -42,7 +42,7 @@
       </div>
       <div class="cart-items-footer">
         <div>
-          <%= link_to "買い物を続ける", public_items_path, class: "button is-info" %>
+          <%= link_to "買い物を続ける", items_path, class: "button is-info" %>
         </div>
         <div>
           <table>

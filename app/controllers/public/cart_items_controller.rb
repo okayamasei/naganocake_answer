@@ -20,34 +20,34 @@ class Public::CartItemsController < ApplicationController
 
     if @cart_item.save
       @cart_items = CartItem.where(end_user_id: current_end_user.id)
-      redirect_to public_cart_items_index_path
+      redirect_to cart_items_index_path
     else
-      redirect_to public_item_path(params[:cart_item][:item_id])
+      redirect_to item_path(params[:cart_item][:item_id])
     end
   end
 
   def update
     cart_item = CartItem.find_by(id: params[:id], end_user_id: current_end_user.id)
     if cart_item.nil?
-      redirect_to public_cart_items_index_path
+      redirect_to cart_items_index_path
     end
     cart_item.update(cart_item_params)
-    redirect_to public_cart_items_index_path
+    redirect_to cart_items_index_path
   end
 
   def destroy
     cart_item = CartItem.find_by(id: params[:id], end_user_id: current_end_user.id)
     if cart_item.destroy
-      redirect_to public_cart_items_index_path
+      redirect_to cart_items_index_path
     else
-      redirect_to public_cart_items_index_path
+      redirect_to cart_items_index_path
     end
   end
 
   def destroy_all
     cart_items = CartItem.where(end_user_id: current_end_user.id)
     cart_items.destroy_all
-    redirect_to public_cart_items_index_path
+    redirect_to cart_items_index_path
   end
 
   private
