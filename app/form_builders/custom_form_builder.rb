@@ -49,7 +49,7 @@ class CustomFormBuilder < ActionView::Helpers::FormBuilder
     end
   
     def error_class(class_option)
-      class_option.split(CLASS_DELIMITER).append(DANGER_CLASS).join(CLASS_DELIMITER)
+      class_option.nil? ? '' : class_option.split(CLASS_DELIMITER).append(DANGER_CLASS).join(CLASS_DELIMITER)
     end
   
   end
