@@ -13,6 +13,22 @@ ja:
       is_valid:
         valid_genre: 有効
         invalid_genre: 無効
+    order:
+      pay_type:
+        credit_cart: クレジットカード
+        bank_transfer: 銀行振込
+      order_status:
+        before_deposite: 入金待ち
+        deposited: 入金確認
+        in_production: 製作中
+        shipping: 発送準備中
+        shipped: 発送済み
+    order_item:
+      work_status:
+        not_available: 着手不可
+        not_worked: 製作待ち
+        working: 製作中
+        worked: 制作完了
   activerecord:
     attributes:
       user:

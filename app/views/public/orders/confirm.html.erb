@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="main-container">
+    <div class="confirm-order">
+      <div class="new-order-header">
+        <h1>注文情報確認</h1>
+      </div>
+
+      <div class="confirm-order-cart-items">
+        <div class="confirm-items">
+          <table>
+            <thead>
+              <tr>
+                <th class="th-left">商品名</th>
+                <th class="th-left">単価(税込)</th>
+                <th class="th-left">数量</th>
+                <th class="th-left">小計</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @cart_items.each do |cart_item| %>
+                <tr>
+                  <td class="td-left"><%= cart_item.item.name %></td>
+                  <td class="td-left"><%= cart_item.item.price_with_tax.to_s(:delimited) %></td>
+                  <td class="td-left"><%= cart_item.amount %></td>
+                  <td class="td-left"><%= cart_item.subtotal.to_s(:delimited) %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="confirm-other">
+          <table>
+            <tbody>
+              <tr>
+                <th class="th-left">送料</th>
+                <td class="td-left"><%= @order.postage.to_s(:delimited) %></td>
+              </tr>
+              <tr>
+                <th class="th-left">商品合計</th>
+                <td class="td-left"><%= (@order.amount - @order.postage).to_s(:delimited) %></td>
+              </tr>
+              <tr>
+                <th class="th-left">請求金額</th>
+                <td class="td-left"><%= @order.amount.to_s(:delimited) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="confirm-order-order">
+        <div>
+          <div class="columns">
+            <div class="column is-2">
+              <label class="label">支払方法</label>
+            </div>
+            <div class="column">
+              <span><%= @order.pay_type_i18n %></span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="columns">
+            <div class="column is-2">
+              <label class="label">お届け先</label>
+            </div>
+            <div class="column">
+              <span>
+                <%= @order.zip_code %> <%= @order.address %><br>
+                <%= @order.destination %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <div>
+          <%= link_to "確認画面に進む", public_orders_complete_path, class: "button is-info" %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

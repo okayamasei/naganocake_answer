@@ -37,7 +37,7 @@ th.th-center {
 th.th-left {
   text-align: left;
   vertical-align: middle;
-  padding-left: 15px;
+  padding: 0 15px;
   white-space: nowrap;
 }
 td.td-center {
@@ -47,6 +47,12 @@ td.td-center {
 }
 td.td-left {
   text-align: left;
+  vertical-align: middle;
+  padding: 0 15px;
+  white-space: nowrap;
+}
+td.td-right {
+  text-align: right;
   vertical-align: middle;
   padding: 0 15px;
   white-space: nowrap;
@@ -126,7 +132,7 @@ a, a:visited {
         padding-left: 30px;
       }
     }
-    .end_users, .end_user, .items {
+    .end_users, .end_user, .items, .new-order, .confirm-order, .admin-orders, .admin-order {
       width: 80%;
       margin: 30px auto;
     }
@@ -339,6 +345,123 @@ a, a:visited {
           th {
             width: 30%;
             background-color: #eee;
+          }
+        }
+      }
+    }
+    .new-order {
+      .buttons {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+      }
+      .new-order-form-pay-type, .new-order-form-address-status {
+        margin-left: 30px;
+      }
+    }
+    .confirm-order {
+      .buttons {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+      }
+      .confirm-order-cart-items {
+        display: flex;
+        margin-top: 15px;
+        div.confirm-items {
+          flex-basis: auto;
+          width: 70%;
+        }
+        div.confirm-other {
+          flex-basis: auto;
+          margin-left: 5%;
+          width: 25%;
+        }
+        table {
+          tr {
+            height: 50px;
+            border-top: 1px solid #ddd;
+            &:last-child {
+              border-bottom: 1px solid #ddd;
+            }
+            th, td {
+              border-left: 1px solid #ddd;
+              &:last-child {
+                border-right: 1px solid #ddd;
+              }
+            }
+            td {
+              .input {
+                width: 30%;
+              }
+              .button {
+                margin-left: 15px;
+              }
+            }
+            th {
+              width: 30%;
+              background-color: #eee;
+            }
+          }
+        }
+      }
+      div.confirm-order-order {
+        margin-top: 15px;
+      }
+      .ordered-message {
+        text-align: center;
+      }
+    }
+    .new-order-header {
+      display: flex;
+      justify-content: space-between;
+      h1 {
+        background-color: #eee;
+        padding: 3px 10px;
+      }
+    }
+    .admin-orders {
+      table {
+        tr {
+          height: 50px;
+          border-bottom: 1px solid #ddd;
+        }
+        thead {
+          tr {
+            background-color: #eee;
+            border-top: 1px solid #ddd;
+          }
+        }
+      }
+    }
+    .admin-order {
+      div.admin-order-container {
+        margin-top: 30px;
+        display: flex;
+        div {
+          flex-basis: auto;
+        }
+        div.admin-order-items {
+          width: 70%;
+          table {
+            tr {
+              height: 50px;
+              border-bottom: 1px solid #ddd;
+            }
+            thead {
+              tr {
+                background-color: #eee;
+                border-top: 1px solid #ddd;
+              }
+            }
+          }
+        }
+        div.admin-order-price {
+          margin-top: auto;
+          margin-left: 5%;
+          width: 25%;
+          tr {
+            height: 30px;
           }
         }
       }
