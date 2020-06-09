@@ -25,4 +25,8 @@ class Order < ApplicationRecord
     self.order_items.inject(0) {|sum, object| sum + object.subtotal}
   end
 
+  def amount_excluded_postage
+    self.amount - self.postage
+  end
+
 end

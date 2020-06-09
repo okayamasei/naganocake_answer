@@ -14,11 +14,4 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
-//= require jquery_ujs
 //= require_tree .
-
-$(document).on('turbolinks:load', function() {
-	$('.image-file').change(function () {
-		console.log("test");
-	});
-});
