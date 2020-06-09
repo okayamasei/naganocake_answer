@@ -2,10 +2,8 @@ class Admin::OrderItemsController < ApplicationController
   before_action :authenticate_admin!
 
   def update
-    # binding.pry
     order_item = OrderItem.find(params[:id])
     if order_item.update(order_item_params)
-      # binding.pry
       redirect_to admin_order_path(order_item.order_id)
     else
       redirect_to admin_order_path(order_item.order)
