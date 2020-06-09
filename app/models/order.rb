@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   has_many :order_items
   attr_accessor :address_status
   attr_accessor :address_id
+  after_update_commit :to_not_worked, if: :deposited?
 
   ADDRESS_STATUS_DEFAULT = "self"
   POSTAGE_DEFAULT = 800
@@ -27,6 +28,14 @@ class Order < ApplicationRecord
 
   def amount_excluded_postage
     self.amount - self.postage
+  end
+
+  def deposited?
+    self.order_status == 'deposited'
+  end
+
+  def to_not_worked
+    self.order_items.update_all(work_status: 'not_worked')
   end
 
 end
