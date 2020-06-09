@@ -31,7 +31,7 @@ class Public::OrdersController < ApplicationController
     when "registration" then
       session[:is_registration] = true
     else
-      redirect_to public_orders_new_path
+      redirect_to orders_new_path
     end
     session[:order] = @order
     @order.amount = @order.postage
