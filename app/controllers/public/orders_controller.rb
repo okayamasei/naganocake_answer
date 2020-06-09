@@ -7,6 +7,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    if current_end_user.cart_items.empty?
+      return redirect_back(fallback_location: root_path)
+    end
     @order = Order.new
     @addresses = Address.all
     @address = Address.new
