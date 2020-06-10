@@ -12,3 +12,4 @@ Genre.create(name: 'ケーキ') if Genre.find_by(name: 'ケーキ').nil?
 Genre.create(name: 'その他') if Genre.find_by(name: 'その他').nil?
 
 Item.create(name: 'ケーキ', genre_id: 1, price: 2500, sales_status: 'sale') if Item.find_by(name: 'ケーキ').nil?
+Item.create(name: 'Naganoせんべえ', genre_id: 2, price: 2500, sales_status: 'sale') if Item.find_by(name: 'その他').nil?
