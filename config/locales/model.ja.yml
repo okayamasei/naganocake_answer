@@ -1,8 +1,86 @@
 ja:
   activerecord:
     models:
-      genre: ジャンル
       end_user: 会員
+      addresse: 配送先
+      admin:  管理者
+      item: 商品
+      genre: ジャンル
+      cart_item: カート商品
+      order: 注文
+      order_item: 注文詳細
     attributes:
+      end_user:
+        id:  会員ID
+        family_name: 姓
+        first_name:  名
+        family_name_kana:  姓カナ
+        first_name_kana: 名カナ
+        email: メールアドレス
+        zip_code:  郵便番号
+        address: 住所
+        tel: 電話番号
+        password:  パスワード
+        is_valid:  会員有効性
+        created_at:  登録日時
+        updated_at:  更新日時
+      address:
+        id: 配送先ID
+        end_user_id: 会員ID
+        zip_code: 郵便番号
+        address: 住所
+        destination: 宛名
+        created_at: 登録日時
+        updated_at: 更新日時
+      admin:
+        id: 管理者ID
+        email: メールアドレス
+        encrypted_password: パスワード
+        created_at: 登録日時
+        updated_at: 更新日時
+      item:
+        id:  商品ID
+        genre:  ジャンル
+        genre_id:  ジャンルID
+        name:  商品名
+        description: 商品説明
+        image_id:  商品画像
+        price: 税抜価格
+        sales_status:  販売ステータス
+        created_at:  登録日時
+        updated_at:  更新日時
       genre:
+        id: ジャンルID
         name: ジャンル名
+        is_valid: 有効性
+        created_at: 登録日時
+        updated_at: 更新日時
+      cart_item:
+        id: カート内商品ID
+        end_user_id: 会員ID
+        item_id: 商品ID
+        amount: 数量
+        created_at: 登録日時
+        updated_at: 更新日時
+      order:
+        id:  注文ID
+        end_user_id: 会員ID
+        zip_code:  郵便番号
+        address: 住所
+        destination: 宛名
+        pay_type:  支払い方法
+        order_status:  注文ステータス
+        postage: 送料
+        amount:  請求合計金額
+        created_at:  登録日時
+        updated_at:  更新日時
+      order_item:
+        id: ID
+        order_id: 注文ID
+        item_id: 商品ID
+        amount: 数量
+        price: 税抜単価
+        tax_rate: 消費税率
+        work_status: 製作ステータス
+        created_at: 登録日時
+        updated_at: 更新日時

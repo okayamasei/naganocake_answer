@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   scope module: :public do
     get '/' => "items#top"
     resources :items, only: [:top, :index, :show]
+
     get 'users/show'
     get 'users/edit'
     patch 'users/update'
@@ -37,5 +38,11 @@ Rails.application.routes.draw do
     get 'orders/show'
     post 'orders/create'
     get 'orders/complete'
+
+    get 'addresses/index'
+    get 'addresses/edit'
+    post 'addresses/create'
+    patch 'addresses/update'
+    delete 'addresses/destroy'
   end
 end

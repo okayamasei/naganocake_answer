@@ -1,9 +1,11 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_end_user!
   def index
+    @orders = Order.where(end_user_id: current_end_user.id).order(id: "DESC")
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new
@@ -11,7 +13,7 @@ class Public::OrdersController < ApplicationController
       return redirect_back(fallback_location: root_path)
     end
     @order = Order.new
-    @addresses = Address.all
+    @addresses = Address.where(end_user_id: current_end_user.id)
     @address = Address.new
   end
 
@@ -21,18 +23,24 @@ class Public::OrdersController < ApplicationController
   def confirm
     @order = current_end_user.orders.new(order_params)
     session[:is_registration] = nil
-    case params[:order][:address_status]
+    case @order.address_status
     when "self" then
       @order.zip_code    = current_end_user.zip_code
       @order.address     = current_end_user.address
       @order.destination = current_end_user.full_name
     when "registered" then
-      address = Address.find(params[:order][:address_id])
+      address = Address.find_by(id: @order.address_id, end_user_id: current_end_user.id)
       @order.zip_code    = address.zip_code
       @order.address     = address.address
       @order.destination = address.destination
     when "registration" then
-      session[:is_registration] = true
+      if @order.valid?
+        session[:is_registration] = true
+      else
+        @addresses = Address.where(end_user_id: current_end_user.id)
+        @address = Address.new
+        render 'new'
+      end
     else
       redirect_to orders_new_path
     end
@@ -58,7 +66,6 @@ class Public::OrdersController < ApplicationController
         order_item.save!
         cart_item.destroy!
       end
-      # TODO: カート内商品削除
       if session[:is_registration]
         current_end_user.addresses.new({
           zip_code: order.zip_code,
@@ -67,8 +74,8 @@ class Public::OrdersController < ApplicationController
         }).save!
         session.delete(:is_registration)
       end
+      session.delete(:order)
     end
-    session.delete(:order)
   end
 
   private
@@ -80,7 +87,9 @@ class Public::OrdersController < ApplicationController
       :pay_type,
       :order_status,
       :postage,
-      :amount
+      :amount,
+      :address_status,
+      :address_id
     )
   end
 end

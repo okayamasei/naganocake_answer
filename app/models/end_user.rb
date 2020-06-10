@@ -4,8 +4,8 @@ class EndUser < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :cart_items
-  has_many :addresses
+  has_many :cart_items, dependent: :destroy
+  has_many :addresses, dependent: :destroy
   has_many :orders
   enum is_valid: { valid_user: true, invalid_user: false }
 

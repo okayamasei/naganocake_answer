@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="main-container">
+    <div class="public-addresses">
+      <div class="public-addresses-header">
+        <div>
+          <h1 class="h1-primary">配送先登録 / 一覧</h1>
+        </div>
+      </div>
+
+      <%=
+        render(
+          'public/addresses/form',
+          model: @address,
+          url: addresses_create_path,
+          button: { text: "登録する", class: "is-primary" }
+        )
+      %>
+
+      <div class="public-addresses-index">
+        <table class="table-primary">
+          <thead>
+            <tr class="tr-primary tr-header">
+              <th class="th-left">郵便番号</th>
+              <th class="th-left">住所</th>
+              <th class="th-left">宛名</th>
+              <th class="th-left"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @addresses.each do |address| %>
+              <tr class="tr-primary">
+                <td class="td-left"><%= address.zip_code %></td>
+                <td class="td-left"><%= address.address %></td>
+                <td class="td-left"><%= address.destination %></td>
+                <td class="td-left">
+                  <%= link_to "編集する", addresses_edit_path(params: {id: address.id}), class: "button is-info" %>
+                  <%= link_to "削除する", addresses_destroy_path(params: {id: address.id}), method: :delete, class: "button is-danger" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,7 +3,7 @@
     <h2>管理者画面</h2>
     <div class="todays-order">
       本日の注文数
-      <%= link_to "0件", "", class: "count" %>
+      <%= link_to "#{@orders.length}件", admin_orders_path, class: "count" %>
     </div>
   </div>
 </div>

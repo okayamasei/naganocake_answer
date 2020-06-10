@@ -1,5 +1,4 @@
 class CustomFormBuilder < ActionView::Helpers::FormBuilder
-
     DANGER_CLASS = 'is-danger'
     CLASS_DELIMITER = ' '
   

@@ -5,8 +5,8 @@ class Item < ApplicationRecord
   attachment :image
 
   enum sales_status: { sale: 1, sold_out: 2 }
-  validates :name, presence: true
-  validates :genre_id, presence: true
+  validates :name , presence: true
+  validates :genre, presence: true
   validates :price, presence: true
   validates :sales_status, presence: true
   attr_accessor :tax_rate
