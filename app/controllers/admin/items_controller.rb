@@ -1,7 +1,12 @@
 class Admin::ItemsController < ApplicationController
   before_action :authenticate_admin!
+
   def index
-    @items = Item.all
+    if params[:search].nil?
+      @items = Item.all
+    else
+      @items = Item.where("name LIKE ?", "%#{params[:search]}%")
+    end
   end
 
   def new
